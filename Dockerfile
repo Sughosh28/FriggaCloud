@@ -4,11 +4,11 @@ FROM openjdk:17-jdk-slim
 # Create a directory for the app
 WORKDIR /app
 
-# Copy the JAR file from target folder (update name if needed)
-COPY target/FriggaCloud-0.0.1-SNAPSHOT.jar
+# ✅ FIX: Copy JAR to current directory as app.jar
+COPY target/FriggaCloud-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose port 9091 (default Spring Boot port)
+# Expose Spring Boot port (change if needed)
 EXPOSE 9091
 
 # Run the jar file
-ENTRYPOINT ["java", "-jar", "FriggaCloud-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
